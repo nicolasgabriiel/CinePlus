@@ -24,8 +24,11 @@
 -[x] Projetar o desenvolvimento do projeto
 
 **12/12/2023**
--[ ] Buscar Layouts e ideia de paletas de cores
--[ ] Criar Arquivo do Projeto
+-[x] Buscar Layouts e ideia de paletas de cores
+    -[x]Esboço Canva
+    https://www.canva.com/design/DAFz9RVIh2k/-ZPCHty7gHk1P9EsO3InXg/edit?utm_content=DAFz9RVIh2k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+    -[x]Padrão de Cores Netflix
+-[x] Criar Arquivo do Projeto
 -[ ] Crir Store com dados da API
 -[ ] Acessar completamente a API com Axios
 
