@@ -34,6 +34,11 @@
 
 **13/12/2023**
 -[ ] Estruturar dados na Página Inicial
+    -[x] Criar Componente Header
+    -[x] Criar Componente Main
+        -[ ]Criar Estrutura de Dados dos Filmes
+    -[x] Criar Componente Footer
+-[ ] Integrar Botões de Troca de Página
 -[ ] Criar Barra de Pesquisa 1/2
 
 **14/12/2023**
