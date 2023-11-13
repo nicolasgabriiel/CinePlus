@@ -29,8 +29,8 @@
     https://www.canva.com/design/DAFz9RVIh2k/-ZPCHty7gHk1P9EsO3InXg/edit?utm_content=DAFz9RVIh2k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
     -[x]Padrão de Cores Netflix
 -[x] Criar Arquivo do Projeto
--[ ] Crir Store com dados da API
--[ ] Acessar completamente a API com Axios
+-[x] Crir Store com dados da API
+-[x] Acessar completamente a API com Axios
 
 **13/12/2023**
 -[ ] Estruturar dados na Página Inicial
