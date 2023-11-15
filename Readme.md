@@ -43,10 +43,10 @@
 
 **14/12/2023**
 -[x] Criar Barra de Pesquisa 2/2
--[ ] Criar Filtros 1/2
+-[x] Criar Filtros 1/2
 
 **15/12/2023**
--[ ] Criar Filtros 2/2
+-[x] Criar Filtros 2/2
 
 
 **16/12/2023**

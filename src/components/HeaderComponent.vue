@@ -1,5 +1,6 @@
 <template>
     <header>
+      <div>
         <RouterLink to="/" @click='zerarInput()'>
             <h1>CinePlus</h1>
         </RouterLink>
@@ -7,6 +8,11 @@
             <input  v-model="inputPesquisa" />
             <button type="button" @click="pesquisar">Q</button>
         </nav>
+      </div>
+      <div>
+        <button>Filtros</button>
+        <button @click="filmeStore.DesligarAvisoDeFiltro()">X</button>
+      </div>
     </header>
 </template>
 

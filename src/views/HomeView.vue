@@ -1,6 +1,7 @@
 <template>
   <HeaderComponent/>
   <MainComponent/>
+  <FilterComponent/>
   <FooterComponent/>
 </template>
 
@@ -9,6 +10,7 @@ import { defineComponent } from 'vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import MainComponent from '@/components/MainComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import FilterComponent from '@/components/FilterComponent.vue';
 
 export default defineComponent({
   name: 'HomeView',
@@ -16,6 +18,7 @@ export default defineComponent({
     HeaderComponent,
     MainComponent,
     FooterComponent,
+    FilterComponent
   }
 });
 </script>

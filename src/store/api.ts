@@ -4,7 +4,9 @@ import axios from 'axios';
 export const useFilmesStore = defineStore({
     id: 'movie',
     state: () => ({
+      //Filmes da Página Principal
       filmes: [],
+      //Dados de Requisição da API
       baseURL: 'https://api.themoviedb.org/3/discover/movie',
       api_key: 'ea50df2fafdaa8c0f5c42dfbb1bd82f9',
       paginaAtual: 1,
@@ -14,57 +16,114 @@ export const useFilmesStore = defineStore({
       sinopse: [ ] as string[],
       imagem: [ ] as string[],
       id: [] as number [],
-      //Pesquisa na API
-      resultadosPesquisa: []
+      //Pesquisa no Input
+      resultadosPesquisa: [],
+      //Filtro de Genero
+      resultadoGenero: [],
+      filtroAtivo: false,
+      generos: [],
+
     }),
     actions: {
+
       // CARREGA OS FILMES
       async carregarFilmes() {
         try {
           const response = await axios.get(`${this.baseURL}?api_key=${this.api_key}&sort_by=popularity.desc&page=${this.paginaAtual}`);
           this.filmes = response.data.results 
-          for(let i = 0; i < this.filmes.length; i++){
-            this.titulo[i] = this.filmes[i].title
-            this.ano[i] = this.filmes[i].release_date.substring(0, 4)
-            this.sinopse[i] = this.filmes[i].overview
-            this.imagem[i] = `https://image.tmdb.org/t/p/original/${this.filmes[i].poster_path}` 
-            this.id[i] = this.filmes[i].id
-          }
+          this.preencherDados(this.filmes)
         } catch (error) {
           console.error('Erro ao buscar filmes:', error);
         }
       },
+
+
       // TROCA DE PÁGINA
       async carregarProximaPagina() {
         this.paginaAtual += 1;
         this.imagem = []
-        await this.carregarFilmes();
+        if(this.filtroAtivo === false){
+          await this.carregarFilmes();
+        }else{
+          await this.carregarFilmesPorGenero()
+        }
       },
       async carregarPaginaAnterior() {
         this.paginaAtual -= 1;
         this.imagem = []
         await this.carregarFilmes();
+        if(this.filtroAtivo === false){
+          await this.carregarFilmes();
+        }else{
+          await this.carregarFilmesPorGenero()
+        }
       },
+
+
       // RESULTADO DE PESQUISA
       async pesquisarFilmes(pesquisa: string) {
-        console.log('a Função Pesquisar Filmes foi ativada')
         try {
           const response = await axios.get(
             `https://api.themoviedb.org/3/search/movie?query=${pesquisa}&api_key=${this.api_key}`
           );
           this.resultadosPesquisa = response.data.results;
-          console.log(this.resultadosPesquisa)
           this.imagem = []
-          for(let i = 0; i < this.resultadosPesquisa.length; i++){
-            this.titulo[i] = this.resultadosPesquisa[i].title
-            this.ano[i] = this.resultadosPesquisa[i].release_date.substring(0, 4)
-            this.sinopse[i] = this.resultadosPesquisa[i].overview
-            this.imagem[i] = `https://image.tmdb.org/t/p/original/${this.resultadosPesquisa[i].poster_path}` 
-            this.id[i] = this.resultadosPesquisa[i].id
-          }
+          this.preencherDados(this.resultadosPesquisa)
+
         } catch (error) {
           console.error('Erro ao buscar filmes:', error);
         }
       },
+
+
+      //CARREGAR FILME POR GENERO
+      async carregarFilmesPorGenero(generoId) {
+        this.LigarAvisoDeFiltro()
+        try {
+          const response = await axios.get(
+            `${this.baseURL}?api_key=${this.api_key}&sort_by=popularity.desc&page=${this.paginaAtual}&with_genres=${generoId}`
+          );
+          this.resultadoGenero = response.data.results;
+          this.imagem = []
+          this.preencherDados(this.resultadoGenero)
+  
+        } catch (error) {
+          console.error('Erro ao buscar filmes por gênero:', error);
+        }
+      },
+
+      //PREENCHER OS DADOS EXIBIDOS
+      preencherDados(valor: any){
+        for(let i = 0; i < valor.length; i++){
+          this.titulo[i] = valor[i].title
+          this.ano[i] = valor[i].release_date.substring(0, 4)
+          this.sinopse[i] = valor[i].overview
+          this.imagem[i] = `https://image.tmdb.org/t/p/original/${valor[i].poster_path}` 
+          this.id[i] = valor[i].id
+        }
+      },
+      async carregarGeneros() {
+        try {
+          const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.api_key}`);
+          this.generos = response.data.genres;
+        } catch (error) {
+          console.error('Erro ao carregar lista de gêneros:', error);
+        }
+      },
+      LigarAvisoDeFiltro(){
+        if(this.filtroAtivo === false){
+          this.paginaAtual = 1
+          this.filtroAtivo = true
+        }else{
+          this.filtroAtivo = true
+        }
+      },
+      DesligarAvisoDeFiltro(){
+        this.filtroAtivo = false
+        this.paginaAtual = 1
+        this.carregarFilmes()
+      }
+
     },
+   
   });

@@ -30,6 +30,7 @@ export default defineComponent({
     },
     beforeMount() {
         this.filmeStore.carregarFilmes()
+        this.filmeStore.carregarGeneros()
     },
 })
 </script>
