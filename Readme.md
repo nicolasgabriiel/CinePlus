@@ -39,24 +39,24 @@
         -[x]Criar Estrutura de Dados dos Filmes
     -[x] Criar Componente Footer
 -[x] Integrar Botões de Troca de Página
--[ ] Criar Barra de Pesquisa 1/2
+-[x] Criar Barra de Pesquisa 1/2
 
 **14/12/2023**
--[ ] Criar Barra de Pesquisa 2/2
+-[x] Criar Barra de Pesquisa 2/2
 -[ ] Criar Filtros 1/2
 
 **15/12/2023**
 -[ ] Criar Filtros 2/2
--[ ] Estilizar dados na Página Inicial
+
 
 **16/12/2023**
--[ ]Estruturar dados de Página Secundária 1/2
+-[ ] Estilizar dados na Página Inicial
 
 **17/12/2023**
--[ ]Estruturar dados de Página Secundária 1/2
+-[ ]Estruturar dados de Página Secundária 
 
 **18/12/2023**
--[ ]Estilizar dados de Página Secundária 1/2
+-[ ]Estilizar dados de Página Secundária 
 -[ ] Responsivo 1/3
 
 **19/12/2023**

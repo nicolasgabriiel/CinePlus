@@ -13,9 +13,12 @@ export const useFilmesStore = defineStore({
       ano: [ ] as string[],
       sinopse: [ ] as string[],
       imagem: [ ] as string[],
-      id: [] as number []
+      id: [] as number [],
+      //Pesquisa na API
+      resultadosPesquisa: []
     }),
     actions: {
+      // CARREGA OS FILMES
       async carregarFilmes() {
         try {
           const response = await axios.get(`${this.baseURL}?api_key=${this.api_key}&sort_by=popularity.desc&page=${this.paginaAtual}`);
@@ -27,11 +30,11 @@ export const useFilmesStore = defineStore({
             this.imagem[i] = `https://image.tmdb.org/t/p/original/${this.filmes[i].poster_path}` 
             this.id[i] = this.filmes[i].id
           }
-          console.log(this.imagem[0])
         } catch (error) {
           console.error('Erro ao buscar filmes:', error);
         }
       },
+      // TROCA DE PÁGINA
       async carregarProximaPagina() {
         this.paginaAtual += 1;
         this.imagem = []
@@ -41,6 +44,27 @@ export const useFilmesStore = defineStore({
         this.paginaAtual -= 1;
         this.imagem = []
         await this.carregarFilmes();
+      },
+      // RESULTADO DE PESQUISA
+      async pesquisarFilmes(pesquisa: string) {
+        console.log('a Função Pesquisar Filmes foi ativada')
+        try {
+          const response = await axios.get(
+            `https://api.themoviedb.org/3/search/movie?query=${pesquisa}&api_key=${this.api_key}`
+          );
+          this.resultadosPesquisa = response.data.results;
+          console.log(this.resultadosPesquisa)
+          this.imagem = []
+          for(let i = 0; i < this.resultadosPesquisa.length; i++){
+            this.titulo[i] = this.resultadosPesquisa[i].title
+            this.ano[i] = this.resultadosPesquisa[i].release_date.substring(0, 4)
+            this.sinopse[i] = this.resultadosPesquisa[i].overview
+            this.imagem[i] = `https://image.tmdb.org/t/p/original/${this.resultadosPesquisa[i].poster_path}` 
+            this.id[i] = this.resultadosPesquisa[i].id
+          }
+        } catch (error) {
+          console.error('Erro ao buscar filmes:', error);
+        }
       },
     },
   });

@@ -30,7 +30,7 @@ export default defineComponent({
     },
     beforeMount() {
         this.filmeStore.carregarFilmes()
-    }
+    },
 })
 </script>
 
@@ -46,3 +46,4 @@ export default defineComponent({
     background-color: #cccccc;
 }
 </style>
+
