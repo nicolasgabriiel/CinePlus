@@ -51,7 +51,7 @@
 
 **16/12/2023**
 -[ ] Estilizar dados na Página Inicial
-    -[ ] Importar um Reset Css
+    -[x] Importar um Reset Css
     -[ ] Estilizar o Header
     -[ ] Estilizar e Crir Lógica nos FILTROS
     -[ ] Estilizar Container do Main
