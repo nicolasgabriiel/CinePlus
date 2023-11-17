@@ -1,8 +1,10 @@
 <template>
+  <div class="container-home">
   <HeaderComponent/>
   <MainComponent/>
   <FilterComponent/>
   <FooterComponent/>
+</div>
 </template>
 
 <script lang="ts">
@@ -23,3 +25,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+.container-home{
+  background-color: #141414;
+}
+</style>

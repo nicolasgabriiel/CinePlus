@@ -52,13 +52,14 @@
 **16/12/2023**
 -[ ] Estilizar dados na Página Inicial
     -[x] Importar um Reset Css
-    -[ ] Estilizar o Header
-    -[ ] Estilizar e Crir Lógica nos FILTROS
-    -[ ] Estilizar Container do Main
-    -[ ] Criar Estilos Reativos nos filmes
-    -[ ] Estilizar o Footer
+    -[x] Estilizar o Header
+    -[x] Estilizar Container do Main
+    -[x] Criar Estilos Reativos nos filmes
+   
 
 **17/12/2023**
+ -[ ] Estilizar o Footer
+-[ ] Estilizar e Crir Lógica nos FILTROS
 -[ ]Estruturar dados de Página Secundária 
 
 **18/12/2023**

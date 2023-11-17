@@ -22,6 +22,10 @@ export const useFilmesStore = defineStore({
       resultadoGenero: [],
       filtroAtivo: false,
       generos: [],
+      nomeGenero: [],
+      idGenero: [],
+      generoAtual: '',
+      caixaDeFiltros: false
 
     }),
     actions: {
@@ -45,7 +49,7 @@ export const useFilmesStore = defineStore({
         if(this.filtroAtivo === false){
           await this.carregarFilmes();
         }else{
-          await this.carregarFilmesPorGenero()
+          await this.carregarFilmesPorGenero(this.generoAtual)
         }
       },
       async carregarPaginaAnterior() {
@@ -55,7 +59,7 @@ export const useFilmesStore = defineStore({
         if(this.filtroAtivo === false){
           await this.carregarFilmes();
         }else{
-          await this.carregarFilmesPorGenero()
+          await this.carregarFilmesPorGenero(this.generoAtual)
         }
       },
 
@@ -78,6 +82,7 @@ export const useFilmesStore = defineStore({
 
       //CARREGAR FILME POR GENERO
       async carregarFilmesPorGenero(generoId) {
+        this.generoAtual = generoId
         this.LigarAvisoDeFiltro()
         try {
           const response = await axios.get(
@@ -106,6 +111,12 @@ export const useFilmesStore = defineStore({
         try {
           const response = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.api_key}`);
           this.generos = response.data.genres;
+          console.log(this.generos)
+          for(let i = 0; i < this.generos.length; i++){
+            this.nomeGenero[i] = this.generos[i].name
+            this.idGenero[i] = this.generos[i].id
+          }
+          console.log(this.generos)
         } catch (error) {
           console.error('Erro ao carregar lista de gêneros:', error);
         }

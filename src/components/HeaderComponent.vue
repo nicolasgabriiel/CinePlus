@@ -1,15 +1,15 @@
 <template>
     <header>
-      <div>
+      <div  class="container-header">
         <RouterLink to="/" @click='zerarInput()'>
             <h1>CinePlus</h1>
         </RouterLink>
-        <nav>
-            <input  v-model="inputPesquisa" />
-            <button type="button" @click="pesquisar">Q</button>
-        </nav>
-      </div>
-      <div>
+          <form id="pesquisa" class="pesquisa">
+            <input  v-model="inputPesquisa" placeholder="Pesquisar por Título" minlength="1" id="meuInput"/>
+            <button type="button" @click="pesquisar" form="pesquisa"></button>
+          </form>
+        </div>
+      <div class="box-filtros">
         <button>Filtros</button>
         <button @click="filmeStore.DesligarAvisoDeFiltro()">X</button>
       </div>
@@ -48,3 +48,48 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+.container-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-header h1{
+  font-family:'agbalumo';
+  margin: 30px 100px;
+  font-size: 4em;
+  color: #E50914;
+}
+.pesquisa{
+display: flex;
+flex-direction: row;
+align-items: center;
+margin-right: 50px;
+}
+.pesquisa > input{
+  border: 1px solid white;
+  padding: 5px 40px;
+  font-size: 1.5em;
+  font-weight: 400;
+  background-color: #363535;
+  color: white;
+}
+.pesquisa > button{
+  background-color: #141414;
+  background-image: url(../assets/lupa-de-pesquisa.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.pesquisa > button:hover{
+scale: 1.1;
+}
+</style>

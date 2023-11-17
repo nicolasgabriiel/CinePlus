@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container-filtros" :class="{hide: !filmeStore.caixaDeFiltros}">
         <li v-for="(genero, index) in filmeStore.generos" :key="index">
-            <ul  @click='this.filmeStore.carregarFilmesPorGenero(filmeStore.generos[index].id)' >{{ filmeStore.generos[index].name }}</ul>
+            <ul  @click='this.filmeStore.carregarFilmesPorGenero(filmeStore.idGenero[index])' >{{ filmeStore.nomeGenero[index]}}</ul>
         </li>
     </div>
 </template>
@@ -21,3 +21,9 @@ export default defineComponent({
 })
 
 </script>
+
+<style>
+.hide{
+    display: none !important;
+}
+</style>
