@@ -16,6 +16,7 @@ export default defineComponent({
 #app{
     font-family: 'Open Sans';
     font-size: 12px;
+    height: 100%;
   }
 
 

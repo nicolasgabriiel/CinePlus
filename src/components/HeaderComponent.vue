@@ -10,8 +10,8 @@
           </form>
         </div>
       <div class="box-filtros">
-        <button>Filtros</button>
-        <button @click="filmeStore.DesligarAvisoDeFiltro()">X</button>
+        <button @click="abrirCaixaDeFiltro()">Filtros</button>
+        <button @click="filmeStore.DesligarAvisoDeFiltro()" :disable="filmeStore.filtroAtivo" :class="{desativado : !filmeStore.filtroAtivo}">X</button>
       </div>
     </header>
 </template>
@@ -43,7 +43,12 @@ export default defineComponent({
     },
     zerarInput(){
         this.inputPesquisa = ''
+        this.filmeStore.paginaAtual = 1
         this.filmeStore.carregarFilmes()
+    },
+    abrirCaixaDeFiltro(){
+      this.filmeStore.caixaDeFiltros = true
+      document.documentElement.style.overflow = 'hidden';
     }
   },
 })
@@ -91,5 +96,36 @@ margin-right: 50px;
 }
 .pesquisa > button:hover{
 scale: 1.1;
+}
+.box-filtros button{
+  border: 1px solid white;
+  font-size: 1.5em;
+  font-weight: 400;
+  background-color: #363535;
+  color: white;
+  transition: 0.3s;
+}
+.box-filtros button:hover{
+  cursor: pointer;
+  background-color: #141414;
+}
+.box-filtros button:first-child{
+  margin: 0 0 0 100px;
+  padding: 5px 40px;
+}
+.box-filtros button:last-child{
+  padding: 5px 10px;
+}
+.desativado{
+  border: 1px solid gray !important; 
+  font-size: 1.5em !important;
+  font-weight: 400 !important;
+  background-color: #363535  !important;
+  color: gray !important;
+  transition: 0.3s !important;
+}
+.desativado:hover{
+  cursor: auto !important;
+  background-color: #363535 !important;
 }
 </style>

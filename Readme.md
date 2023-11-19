@@ -59,7 +59,7 @@
 
 **17/12/2023**
  -[ ] Estilizar o Footer
--[ ] Estilizar e Crir Lógica nos FILTROS
+-[x] Estilizar e Crir Lógica nos FILTROS
 -[ ]Estruturar dados de Página Secundária 
 
 **18/12/2023**

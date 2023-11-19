@@ -29,5 +29,6 @@ export default defineComponent({
 <style>
 .container-home{
   background-color: #141414;
+  height: 100%;
 }
 </style>

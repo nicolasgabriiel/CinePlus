@@ -46,8 +46,8 @@ export default defineComponent({
 .box-filmes{
     margin: 0px 50px;
     display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Define 3 colunas com largura igual */
-  grid-gap: 50px; /* Espaçamento entre os itens */
+  grid-template-columns: repeat(5, 1fr); 
+  grid-gap: 50px;
 }
 .container-filmes {
     background-color: black;
@@ -70,7 +70,7 @@ export default defineComponent({
 .imagem-filme {
     width: 200px;
     height: 300px;
-    background-color: red;
+    background-color: #141414;
     background-size: contain;
     transition: 0.5s;
 }

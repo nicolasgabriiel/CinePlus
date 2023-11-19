@@ -25,7 +25,7 @@ export const useFilmesStore = defineStore({
       nomeGenero: [],
       idGenero: [],
       generoAtual: '',
-      caixaDeFiltros: false
+      caixaDeFiltros: true
 
     }),
     actions: {
@@ -51,6 +51,7 @@ export const useFilmesStore = defineStore({
         }else{
           await this.carregarFilmesPorGenero(this.generoAtual)
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       },
       async carregarPaginaAnterior() {
         this.paginaAtual -= 1;
@@ -61,6 +62,7 @@ export const useFilmesStore = defineStore({
         }else{
           await this.carregarFilmesPorGenero(this.generoAtual)
         }
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       },
 
 
@@ -81,7 +83,7 @@ export const useFilmesStore = defineStore({
 
 
       //CARREGAR FILME POR GENERO
-      async carregarFilmesPorGenero(generoId) {
+      async carregarFilmesPorGenero(generoId: number) {
         this.generoAtual = generoId
         this.LigarAvisoDeFiltro()
         try {
@@ -91,6 +93,9 @@ export const useFilmesStore = defineStore({
           this.resultadoGenero = response.data.results;
           this.imagem = []
           this.preencherDados(this.resultadoGenero)
+          this.caixaDeFiltros = false
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+          document.documentElement.style.overflow = 'auto';
   
         } catch (error) {
           console.error('Erro ao buscar filmes por gênero:', error);
