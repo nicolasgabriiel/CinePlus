@@ -10,7 +10,7 @@
           </form>
         </div>
       <div class="box-filtros">
-        <button @click="abrirCaixaDeFiltro()">Filtros</button>
+        <button @click="abrirCaixaDeFiltro()">{{ filmeStore.nomeDoFiltro }}</button>
         <button @click="filmeStore.DesligarAvisoDeFiltro()" :disable="filmeStore.filtroAtivo" :class="{desativado : !filmeStore.filtroAtivo}">X</button>
       </div>
     </header>

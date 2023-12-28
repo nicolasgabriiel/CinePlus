@@ -25,8 +25,8 @@ export const useFilmesStore = defineStore({
       nomeGenero: [],
       idGenero: [],
       generoAtual: '',
-      caixaDeFiltros: true
-
+      caixaDeFiltros: false,
+      nomeDoFiltro: 'Gêneros'
     }),
     actions: {
 
@@ -83,8 +83,10 @@ export const useFilmesStore = defineStore({
 
 
       //CARREGAR FILME POR GENERO
-      async carregarFilmesPorGenero(generoId: number) {
+      async carregarFilmesPorGenero(generoId: number, index: number) {
         this.generoAtual = generoId
+        console.log(index)
+        this.nomeDoFiltro = this.nomeGenero[index]
         this.LigarAvisoDeFiltro()
         try {
           const response = await axios.get(
@@ -138,6 +140,7 @@ export const useFilmesStore = defineStore({
         this.filtroAtivo = false
         this.paginaAtual = 1
         this.carregarFilmes()
+        this.nomeDoFiltro = 'Gêneros'
       }
 
     },

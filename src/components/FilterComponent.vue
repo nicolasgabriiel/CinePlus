@@ -6,7 +6,7 @@
             <button @click="fecharCaixaDeFiltro()">X</button>
         </div>
         <ul  class="lista-generos">
-            <li v-for="(genero, index) in filmeStore.generos" :key="index" @click='this.filmeStore.carregarFilmesPorGenero(filmeStore.idGenero[index])' >{{ filmeStore.nomeGenero[index]}}</li>
+            <li v-for="(genero, index) in filmeStore.generos" :key="index" @click='this.filmeStore.carregarFilmesPorGenero(filmeStore.idGenero[index], index)' >{{ filmeStore.nomeGenero[index]}}</li>
         </ul>
     </div>
 </div>
