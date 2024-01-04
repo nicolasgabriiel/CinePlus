@@ -20,59 +20,32 @@
 ### Desenvolvimento
 
 
-**11/12/2023**
 -[x] Projetar o desenvolvimento do projeto
-
-**12/12/2023**
 -[x] Buscar Layouts e ideia de paletas de cores
-    -[x]Esboço Canva
-    https://www.canva.com/design/DAFz9RVIh2k/-ZPCHty7gHk1P9EsO3InXg/edit?utm_content=DAFz9RVIh2k&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-    -[x]Padrão de Cores Netflix
+-[x]Esboço Canva
 -[x] Criar Arquivo do Projeto
 -[x] Crir Store com dados da API
 -[x] Acessar completamente a API com Axios
-
-**13/12/2023**
--[ ] Estruturar dados na Página Inicial
+-[x] Estruturar dados na Página Inicial
     -[x] Criar Componente Header
     -[x] Criar Componente Main
         -[x]Criar Estrutura de Dados dos Filmes
     -[x] Criar Componente Footer
 -[x] Integrar Botões de Troca de Página
--[x] Criar Barra de Pesquisa 1/2
-
-**14/12/2023**
--[x] Criar Barra de Pesquisa 2/2
--[x] Criar Filtros 1/2
-
-**15/12/2023**
--[x] Criar Filtros 2/2
-
-
-**16/12/2023**
--[ ] Estilizar dados na Página Inicial
+-[x] Criar Barra de Pesquisa 
+-[x] Criar Filtros 
+-[x] Estilizar dados na Página Inicial
     -[x] Importar um Reset Css
     -[x] Estilizar o Header
     -[x] Estilizar Container do Main
     -[x] Criar Estilos Reativos nos filmes
-   
-
-**17/12/2023**
  -[ ] Estilizar o Footer
 -[x] Estilizar e Crir Lógica nos FILTROS
 -[ ]Estruturar dados de Página Secundária 
-
-**18/12/2023**
 -[ ]Estilizar dados de Página Secundária 
--[ ] Responsivo 1/3
-
-**19/12/2023**
--[ ] Responsivo 2/3
-
-**20/12/2023**
--[ ]Responsivo 3/3
+-[ ] Responsivo 
 -[ ]Testes 
--[ ]Readme
+-[ ]Redigir Readme e Documentação
 
 
 
